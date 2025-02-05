@@ -120,11 +120,11 @@
     },
     {
       "name": "/actions/srinput/in/touchpadposition",
-      "type": "boolean"
+      "type": "vector2"
     },
     {
       "name": "/actions/srinput/in/pose",
-      "type": "boolean"
+      "type": "pose"
     }
   ],
   "action_sets": [

@@ -49,7 +49,7 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean touchpadposition
+        public virtual SteamVR_Action_Vector2 touchpadposition
         {
             get
             {
@@ -57,7 +57,7 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean pose
+        public virtual SteamVR_Action_Pose pose
         {
             get
             {

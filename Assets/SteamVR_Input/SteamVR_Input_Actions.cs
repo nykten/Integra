@@ -73,9 +73,9 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_srinput_touchpadtouch;
         
-        private static SteamVR_Action_Boolean p_srinput_touchpadposition;
+        private static SteamVR_Action_Vector2 p_srinput_touchpadposition;
         
-        private static SteamVR_Action_Boolean p_srinput_pose;
+        private static SteamVR_Action_Pose p_srinput_pose;
         
         public static SteamVR_Action_Boolean default_InteractUI
         {
@@ -301,19 +301,19 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean srinput_touchpadposition
+        public static SteamVR_Action_Vector2 srinput_touchpadposition
         {
             get
             {
-                return SteamVR_Actions.p_srinput_touchpadposition.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_srinput_touchpadposition.GetCopy<SteamVR_Action_Vector2>();
             }
         }
         
-        public static SteamVR_Action_Boolean srinput_pose
+        public static SteamVR_Action_Pose srinput_pose
         {
             get
             {
-                return SteamVR_Actions.p_srinput_pose.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_srinput_pose.GetCopy<SteamVR_Action_Pose>();
             }
         }
         
@@ -386,7 +386,8 @@ namespace Valve.VR
                     SteamVR_Actions.default_Haptic};
             Valve.VR.SteamVR_Input.actionsPose = new Valve.VR.SteamVR_Action_Pose[] {
                     SteamVR_Actions.default_Pose,
-                    SteamVR_Actions.mixedreality_ExternalCamera};
+                    SteamVR_Actions.mixedreality_ExternalCamera,
+                    SteamVR_Actions.srinput_pose};
             Valve.VR.SteamVR_Input.actionsBoolean = new Valve.VR.SteamVR_Action_Boolean[] {
                     SteamVR_Actions.default_InteractUI,
                     SteamVR_Actions.default_Teleport,
@@ -406,15 +407,14 @@ namespace Valve.VR
                     SteamVR_Actions.srinput_grip,
                     SteamVR_Actions.srinput_trigger,
                     SteamVR_Actions.srinput_touchpadclick,
-                    SteamVR_Actions.srinput_touchpadtouch,
-                    SteamVR_Actions.srinput_touchpadposition,
-                    SteamVR_Actions.srinput_pose};
+                    SteamVR_Actions.srinput_touchpadtouch};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze,
                     SteamVR_Actions.buggy_Throttle};
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
                     SteamVR_Actions.platformer_Move,
-                    SteamVR_Actions.buggy_Steering};
+                    SteamVR_Actions.buggy_Steering,
+                    SteamVR_Actions.srinput_touchpadposition};
             Valve.VR.SteamVR_Input.actionsVector3 = new Valve.VR.SteamVR_Action_Vector3[0];
             Valve.VR.SteamVR_Input.actionsSkeleton = new Valve.VR.SteamVR_Action_Skeleton[] {
                     SteamVR_Actions.default_SkeletonLeftHand,
@@ -443,8 +443,7 @@ namespace Valve.VR
                     SteamVR_Actions.srinput_trigger,
                     SteamVR_Actions.srinput_touchpadclick,
                     SteamVR_Actions.srinput_touchpadtouch,
-                    SteamVR_Actions.srinput_touchpadposition,
-                    SteamVR_Actions.srinput_pose};
+                    SteamVR_Actions.srinput_touchpadposition};
         }
         
         private static void PreInitActions()
@@ -477,8 +476,8 @@ namespace Valve.VR
             SteamVR_Actions.p_srinput_trigger = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/srinput/in/trigger")));
             SteamVR_Actions.p_srinput_touchpadclick = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/srinput/in/touchpadclick")));
             SteamVR_Actions.p_srinput_touchpadtouch = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/srinput/in/touchpadtouch")));
-            SteamVR_Actions.p_srinput_touchpadposition = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/srinput/in/touchpadposition")));
-            SteamVR_Actions.p_srinput_pose = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/srinput/in/pose")));
+            SteamVR_Actions.p_srinput_touchpadposition = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/srinput/in/touchpadposition")));
+            SteamVR_Actions.p_srinput_pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/srinput/in/pose")));
         }
     }
 }
